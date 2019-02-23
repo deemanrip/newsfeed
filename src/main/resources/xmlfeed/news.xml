@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><atom:link href="http://localhost" rel="self" type="application/rss+xml"/></channel>
+<channel><title>Article Feed</title><description>Test articles</description>
+<item>
+    <title>How to drink vodka like a Russian</title><link>http://www.bbc.com/travel/story/20190212-russias-strange-bread-sniffing-ritual?ocid=global_travel_rss</link><description><![CDATA[<p>Strangely enough, it involves sniffing bread</p>
+]]></description><pubDate>Wed, 13 Feb 2019 15:15:03 +0000</pubDate></item>
+    <item><title>Britain's Prince Philip warned by police over seat belt, two days after crash</title><link>http://todayonlistg2.prod.acquia-sites.com/world/britains-prince-philip-warned-police-over-seat-belt-two-days-after-crash</link><description><![CDATA[<p>LONDON — Queen Elizabeth's 97-year-old husband Prince Philip received a warning from police after he was photographed apparently driving without a seat belt, just two days after he was involved in a crash while at the wheel.
+</p>
+]]></description><pubDate>Sun, 20 Jan 2019 16:10:00 +0800</pubDate></item>
+    <item><title>Malaysian attacked in New York dies, says report</title><link>http://todayonlistg2.prod.acquia-sites.com/world/report-malaysian-attacked-new-york-dies</link><description><![CDATA[<p>An official from Malaysia's Ministry of Foreign Affairs has confirmed the death of a Malaysian restaurant owner, who was attacked with a hammer in a racist attack in New York on Tuesday (Jan 15), The Star reported on Sunday.</p>
+]]></description><pubDate>Sun, 20 Jan 2019 15:11:24 +0800</pubDate></item>
+    <item><title>The secret to Danish happiness?</title><link>http://www.bbc.com/travel/story/20190217-what-to-do-when-hygge-no-longer-works</link><description><![CDATA[<p>Interestingly, it isn’t hygge]]></description><pubDate>Mon, 18 Feb 2019 20:09:35 +0000</pubDate></item>
+    <!--<item><title>Bramble Cay melomys: Climate change-ravaged rodent listed as extinct</title><link>https://www.bbc.com/news/world-australia-47300992</link><description><![CDATA[It was described in 2016 as the first mammalian extinction caused by human-induced climate change.]]></description><pubDate>Wed, 20 Jan 2019 8:05:11 +0000</pubDate></item>-->
+</channel></rss>
