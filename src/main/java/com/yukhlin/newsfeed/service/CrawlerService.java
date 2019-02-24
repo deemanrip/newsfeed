@@ -34,8 +34,9 @@ public class CrawlerService {
     public void crawlSites() throws XMLStreamException, IOException {
         List<String> links = staxParserWrapper.parseXmlFeed();
         links.stream()
-                .map(link -> htmlExtractor.extractData(link))
-                .map(extraction -> {
+                .map(link -> {
+                    ExtractedArticleData extraction = htmlExtractor.extractData(link);
+
                     String fileName = extraction.getTitle().replace(" ", "-") + ".html";
                     String extractionLink = htmlBodyWriter.saveBody(extraction.getBody(), fileName);
 
