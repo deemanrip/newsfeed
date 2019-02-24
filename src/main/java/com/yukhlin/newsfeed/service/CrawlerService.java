@@ -41,7 +41,11 @@ public class CrawlerService {
 
                     return createEntity(extraction, extractionLink);
                 })
-                .forEach(article -> articleRepository.save(article));
+                .forEach(article -> {
+                    if (!articleRepository.existsByTitle(article.getTitle())) {
+                        articleRepository.save(article);
+                    }
+                });
     }
 
     public List<Article> getCrawlingResult() {
