@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 public class HtmlExtractor {
 
     public ExtractedArticleData extractData(String sourceLink) {
+        ExtractedArticleData extraction = new ExtractedArticleData();
+        extraction.setSourceLink(sourceLink);
+
         JBrowserDriver driver = new JBrowserDriver();
         driver.get(sourceLink);
         String pageSource = driver.getPageSource();
@@ -21,7 +24,6 @@ public class HtmlExtractor {
 
         Elements titleEl = doc.select("meta[property=og:title]");
         String title = titleEl.attr("content");
-        ExtractedArticleData extraction = new ExtractedArticleData();
         extraction.setTitle(title);
 
         Elements mainImageEl = doc.select("meta[property=og:image]");

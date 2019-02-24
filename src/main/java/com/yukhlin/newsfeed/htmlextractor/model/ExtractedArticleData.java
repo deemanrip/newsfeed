@@ -4,11 +4,20 @@ import java.time.LocalDate;
 
 public class ExtractedArticleData {
 
+    private String sourceLink;
     private String title;
     private String description;
     private String mainImageLink;
     private LocalDate publicationDate;
     private String body;
+
+    public String getSourceLink() {
+        return sourceLink;
+    }
+
+    public void setSourceLink(String sourceLink) {
+        this.sourceLink = sourceLink;
+    }
 
     public String getTitle() {
         return title;
