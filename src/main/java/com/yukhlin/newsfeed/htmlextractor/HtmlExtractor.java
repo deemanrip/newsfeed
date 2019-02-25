@@ -13,7 +13,6 @@ public class HtmlExtractor {
 
     public ExtractedArticleData extractData(String sourceLink) {
         ExtractedArticleData extraction = new ExtractedArticleData();
-        extraction.setSourceLink(sourceLink);
 
         JBrowserDriver driver = new JBrowserDriver();
         driver.get(sourceLink);
@@ -22,26 +21,24 @@ public class HtmlExtractor {
 
         Document doc = Jsoup.parse(pageSource);
 
-        Elements titleEl = doc.select("meta[property=og:title]");
-        String title = titleEl.attr("content");
-        extraction.setTitle(title);
+        extraction.setMainImageLink(extractMainImageLink(doc));
+        extraction.setBody(removeScripts(doc.body()));
 
+        return extraction;
+    }
+
+    private String extractMainImageLink(Document doc) {
         Elements mainImageEl = doc.select("meta[property=og:image]");
-        String mainImageUrl = mainImageEl.attr("content");
-        extraction.setMainImageLink(mainImageUrl);
+        return mainImageEl.attr("content");
+    }
 
-        Elements descriptionEl = doc.select("meta[name=description]");
-        String description = descriptionEl.attr("content");
-        extraction.setDescription(description);
-
-        Element body = doc.body();
+    private String removeScripts(Element body) {
         body.getAllElements().forEach(element -> {
             if (element.tagName().equals("script")) {
                 element.remove();
             }
         });
-        extraction.setBody(body.toString());
 
-        return extraction;
+        return body.toString();
     }
 }
