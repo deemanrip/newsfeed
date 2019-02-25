@@ -6,6 +6,7 @@ import com.yukhlin.newsfeed.htmlbodywriter.HtmlBodyWriter;
 import com.yukhlin.newsfeed.htmlextractor.HtmlExtractor;
 import com.yukhlin.newsfeed.htmlextractor.model.ExtractedArticleData;
 import com.yukhlin.newsfeed.xmlparser.StaxParserWrapper;
+import com.yukhlin.newsfeed.xmlparser.model.ParsedArticleItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,10 +33,10 @@ public class CrawlerService {
     }
 
     public void crawlSites() throws XMLStreamException, IOException {
-        List<String> links = staxParserWrapper.parseXmlFeed();
+        List<ParsedArticleItem> links = staxParserWrapper.parseXmlFeed();
         links.stream()
-                .map(link -> {
-                    ExtractedArticleData extraction = htmlExtractor.extractData(link);
+                .map(articleItem -> {
+                    ExtractedArticleData extraction = htmlExtractor.extractData(articleItem.getLink());
 
                     String fileName = extraction.getTitle().replace(" ", "-") + ".html";
                     String extractionLink = htmlBodyWriter.saveBody(extraction.getBody(), fileName);
