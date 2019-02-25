@@ -1,11 +1,14 @@
 package com.yukhlin.newsfeed.htmlbodywriter;
 
-import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 public class HtmlBodyWriter {
 
-    private static final String EXTRACTION_DIRECTORY = "src/resources/static/extractedhtml/";
+    private static final String EXTRACTION_DIRECTORY = "src\\main\\resources\\static\\extractedhtml\\";
 
     private String linkTemplate;
 
@@ -14,8 +17,9 @@ public class HtmlBodyWriter {
     }
 
     public String saveBody(String body, String fileName) {
-        try (FileWriter fileWriter = new FileWriter(EXTRACTION_DIRECTORY + fileName)) {
-            fileWriter.write(body);
+        try {
+            Path file = Paths.get(EXTRACTION_DIRECTORY, fileName);
+            Files.write(file, body.getBytes(), StandardOpenOption.CREATE);
 
             return linkTemplate + fileName;
         } catch (IOException e) {
