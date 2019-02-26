@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/crawler")
+@RequestMapping(value = "/crawler", consumes = "application/json", produces = "application/json")
 public class CrawlerController {
 
     private CrawlerService crawlerService;
