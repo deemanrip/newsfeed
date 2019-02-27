@@ -9,6 +9,6 @@ import java.util.List;
 public interface CrawlerService {
 
     void crawlSites() throws XMLStreamException, IOException;
-    List<Article> getCrawlingResult();
+    List<Article> getCrawlerResult();
 
 }

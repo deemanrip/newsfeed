@@ -33,6 +33,6 @@ public class CrawlerController {
 
     @GetMapping
     public ResponseEntity<List<Article>> getCrawlerResult() {
-        return new ResponseEntity<>(crawlerService.getCrawlingResult(), HttpStatus.OK);
+        return new ResponseEntity<>(crawlerService.getCrawlerResult(), HttpStatus.OK);
     }
 }

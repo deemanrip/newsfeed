@@ -41,7 +41,7 @@ public class CrawlerServiceImpl implements CrawlerService {
                 .map(articleItem -> {
                     ExtractedArticleData extraction = htmlExtractor.extractData(articleItem.getLink());
 
-                    String fileName = UUID.randomUUID() + ".txt";
+                    String fileName = "/" + UUID.randomUUID() + ".txt";
                     String extractionLink = htmlBodyWriter.saveBody(extraction.getBody(), fileName);
 
                     return createEntity(extraction, articleItem, extractionLink);
@@ -50,7 +50,7 @@ public class CrawlerServiceImpl implements CrawlerService {
     }
 
     @Override
-    public List<Article> getCrawlingResult() {
+    public List<Article> getCrawlerResult() {
         return StreamSupport
                 .stream(articleRepository.findAll().spliterator(), false)
                 .collect(Collectors.toList());

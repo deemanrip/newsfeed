@@ -8,16 +8,12 @@ import java.nio.file.StandardOpenOption;
 
 public class HtmlBodyWriter {
 
-    private String linkTemplate;
     private String extractionDirectory;
+    private String extractionResourceLink;
 
-    public HtmlBodyWriter(String linkTemplate, String extractionDirectory) {
-        this.linkTemplate = linkTemplate;
+    public HtmlBodyWriter(String extractionDirectory, String extractionResourceLink) {
         this.extractionDirectory = extractionDirectory;
-    }
-
-    public String getLinkTemplate() {
-        return linkTemplate;
+        this.extractionResourceLink = extractionResourceLink;
     }
 
     public String getExtractionDirectory() {
@@ -29,7 +25,7 @@ public class HtmlBodyWriter {
             Path file = Paths.get(extractionDirectory, fileName);
             Files.write(file, body.getBytes(), StandardOpenOption.CREATE);
 
-            return linkTemplate + fileName;
+            return extractionResourceLink + fileName;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
