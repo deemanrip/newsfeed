@@ -1,15 +1,17 @@
+const BASE_URL = window.location.protocol + "//" + window.location.host;
+
 $(document).ready(function () {
     $.ajax({
         method: "GET",
         dataType: "json",
         contentType: "application/json",
-        url: window.location.protocol + "//" + window.location.host + "/crawler",
+        url: BASE_URL + "/crawler",
         success: getCrawlerResultHandler
     });
 });
 
 function getCrawlerResultHandler(data) {
-    var tableHeader = "<tr>" +
+    let tableHeader = "<tr>" +
         "<th>Title</th>" +
         "<th>Description</th>" +
         "<th>Publication Date</th>" +
@@ -17,7 +19,7 @@ function getCrawlerResultHandler(data) {
         "<th>Main Image Link</th>" +
         "</tr>";
 
-    var rows = "";
+    let rows = "";
     data.forEach(function (row) {
         rows += "<tr>" +
             "<td>" + row.title + "</td>" +
