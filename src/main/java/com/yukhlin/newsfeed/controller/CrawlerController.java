@@ -26,9 +26,9 @@ public class CrawlerController {
     }
 
     @PostMapping
-    public ResponseEntity<String> crawlSites() throws XMLStreamException, IOException {
+    public ResponseEntity crawlSites() throws XMLStreamException, IOException {
         crawlerService.crawlSites();
-        return new ResponseEntity<>("Sites crawled successfully", HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping
