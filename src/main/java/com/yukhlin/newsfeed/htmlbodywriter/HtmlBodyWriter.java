@@ -8,17 +8,25 @@ import java.nio.file.StandardOpenOption;
 
 public class HtmlBodyWriter {
 
-    private static final String EXTRACTION_DIRECTORY = "src\\main\\resources\\static\\extractedhtml\\";
-
     private String linkTemplate;
+    private String extractionDirectory;
 
-    public HtmlBodyWriter(String linkTemplate) {
+    public HtmlBodyWriter(String linkTemplate, String extractionDirectory) {
         this.linkTemplate = linkTemplate;
+        this.extractionDirectory = extractionDirectory;
+    }
+
+    public String getLinkTemplate() {
+        return linkTemplate;
+    }
+
+    public String getExtractionDirectory() {
+        return extractionDirectory;
     }
 
     public String saveBody(String body, String fileName) {
         try {
-            Path file = Paths.get(EXTRACTION_DIRECTORY, fileName);
+            Path file = Paths.get(extractionDirectory, fileName);
             Files.write(file, body.getBytes(), StandardOpenOption.CREATE);
 
             return linkTemplate + fileName;
