@@ -4,8 +4,7 @@ Before application start:
 - Specify datasource properties in application.properties (spring.datasource.url, spring.datasource.username, spring.datasource.password)
 - Create table in news_feed schema:
 
- a) Using flyway
- 
+ a) Using flyway: 
     To create table using flyway, specify database connection parameters in build.gradle file in flyway section (url, user, password).
     Then, run flyway tasks flywayClean and flywayMigrate (they can be runned via Intellij Idea gradle plugin and Tasks/flyway section).
     Or
