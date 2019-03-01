@@ -9,8 +9,10 @@ Before application start:
     Or
  b) Create table manually using resources/db/migration/V1__create_article_table.sql script
 - Directory for html-extraction files should be created and specified in crawler.properties file (extraction.directory property), e.g. C:/extraction
+
 To run application:
 - Run main class com.yukhlin.newsfeed.NewsfeedApplication
+
 To run crawler:
 - open root url (http://localhost:8080)
 The web page should be displayed with 'Run crawler?' message and button. Click button, then, if crawler is completed successfully, the result table will be displayed.
